@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/jobListFragment">
+
+    <fragment
+        android:id="@+id/jobListFragment"
+        android:name="com.muzafferus.githubjobs.ui.fragment.job_list.JobListFragment"
+        android:label="JobListFragment">
+        <action
+            android:id="@+id/action_jobListFragment_to_jobFragment"
+            app:destination="@id/jobFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/jobListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/jobFragment"
+        android:name="com.muzafferus.githubjobs.ui.fragment.job.JobFragment"
+        android:label="JobFragment">
+        <action
+            android:id="@+id/action_jobFragment_to_jobListFragment"
+            app:destination="@id/jobListFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/jobListFragment" />
+        <argument
+            android:name="selectJobData"
+            app:argType="com.muzafferus.githubjobs.data.JobData" />
+    </fragment>
+</navigation>
