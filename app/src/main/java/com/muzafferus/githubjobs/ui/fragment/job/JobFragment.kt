@@ -11,6 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.muzafferus.githubjobs.R
 import com.muzafferus.githubjobs.databinding.FragmentJobBinding
+import timber.log.Timber
 
 class JobFragment : Fragment() {
 
@@ -28,6 +29,12 @@ class JobFragment : Fragment() {
         val args =
             JobFragmentArgs.fromBundle(arguments!!)
         binding.job = args.selectJobData
+        Timber.d("Timber d")
+        Timber.e("Timber e")
+        Timber.i("Timber i")
+        Timber.v("Timber v")
+        Timber.w("Timber w")
+        Timber.wtf("Timber wtf")
         return binding.root
     }
 
