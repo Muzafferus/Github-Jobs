@@ -10,9 +10,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.findNavController
 import com.muzafferus.githubjobs.R
+import com.muzafferus.githubjobs.data.JobData
 import com.muzafferus.githubjobs.data.JobDatabase
 import com.muzafferus.githubjobs.databinding.FragmentJobListBinding
 import com.muzafferus.githubjobs.factory.JobListViewModelFactory
+import com.muzafferus.githubjobs.listener.OnClickItemListener
 import com.muzafferus.githubjobs.view_model.JobListViewModel
 
 class JobListFragment : Fragment() {
@@ -54,13 +56,15 @@ class JobListFragment : Fragment() {
             binding.viewModel = viewModel
         })
 
-        adapter.setOnClickListener(onClickListener = {
-            view?.findNavController()?.navigate(
-                JobListFragmentDirections
-                    .actionJobListFragmentToJobFragment(
-                        it
-                    )
-            )
+        adapter.setOnClickListener(object : OnClickItemListener<JobData> {
+            override fun onClickedItem(item: JobData) {
+                view?.findNavController()?.navigate(
+                    JobListFragmentDirections
+                        .actionJobListFragmentToJobFragment(
+                            item
+                        )
+                )
+            }
         })
     }
 
